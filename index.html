@@ -81,6 +81,7 @@ header.nav.scrolled{box-shadow:0 4px 28px -12px rgba(44,40,48,.14)}
 .btn-ghost{background:transparent;color:var(--rose-deep);border-color:rgba(158,123,138,.45)}
 .btn-ghost:hover{border-color:var(--rose);background:rgba(158,123,138,.08)}
 .btn-gold{background:var(--gold);color:#fff;border-color:var(--gold)}
+#repBtn{white-space:normal;max-width:100%;line-height:1.3;text-align:center}
 .btn-gold:hover{background:#b8943d;border-color:#b8943d;transform:translateY(-1px)}
 .burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:8px}
 .burger span{width:23px;height:1.5px;background:var(--ink);display:block;transition:.3s}
@@ -205,6 +206,7 @@ header.nav.scrolled{box-shadow:0 4px 28px -12px rgba(44,40,48,.14)}
 /* ══ REPERTORIO ══ */
 .rep{background:var(--ivory);padding:80px 0}
 .rep-layout{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+.rep-aside,.rep-list,.rep-cat{min-width:0}
 .rep-aside h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:12px}
 .rep-aside p{color:#6b5a60;font-size:1rem;line-height:1.7;margin-top:10px;margin-bottom:24px}
 .rep-list{display:grid;grid-template-columns:1fr 1fr;gap:0}
@@ -213,8 +215,8 @@ header.nav.scrolled{box-shadow:0 4px 28px -12px rgba(44,40,48,.14)}
 .rep-cat:nth-child(even){padding-left:24px}
 .rep-cat h4{font-size:.68rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .rep-cat ul{list-style:none}
-.rep-cat li{font-size:.92rem;color:#5a4a54;padding:4px 0;border-bottom:1px solid rgba(158,123,138,.08);display:flex;align-items:baseline;gap:.5em}
-.rep-cat li::before{content:"♩";color:var(--gold-soft);font-size:.7rem;flex:0 0 auto}
+.rep-cat li{font-size:.92rem;color:#5a4a54;padding:4px 0;border-bottom:1px solid rgba(158,123,138,.08);overflow-wrap:anywhere}
+.rep-cat li::before{content:"♩";color:var(--gold-soft);font-size:.7rem;margin-right:.5em}
 .rep-dl{display:inline-flex;align-items:center;gap:.5em;margin-top:18px;font-size:.82rem;color:var(--muted);border:1px dashed var(--line);border-radius:6px;padding:.5em .9em}
 .rep-dl svg{flex:0 0 auto}
 
@@ -433,7 +435,7 @@ body.loaded{overflow:auto}
 .lb-overlay.open{opacity:1;visibility:visible}
 .lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px;transform:scale(.92);transition:transform .3s ease;box-shadow:0 24px 80px rgba(0,0,0,.6)}
 .lb-overlay.open .lb-img{transform:scale(1)}
-.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s;z-index:10}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
 .lb-close:hover{opacity:1}
 .lb-caption{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:"Mulish"}
 .gallery figure{cursor:zoom-in}
@@ -769,7 +771,7 @@ footer{
 /* Bio justificada */
 #quienes .about-grid p{text-align:justify}
 /* Tarjeta de 3 datos (sustituye al +3 flotante) */
-.about-statcard{position:absolute;right:-18px;bottom:-18px;background:var(--white);border-radius:var(--r);padding:14px 26px;box-shadow:var(--shadow);border:1px solid var(--line);text-align:center;min-width:158px}
+.about-statcard{position:absolute;right:0;top:calc(100% - 46px);bottom:auto;background:var(--white);border-radius:var(--r);padding:14px 26px;box-shadow:var(--shadow);border:1px solid var(--line);text-align:center;min-width:158px}
 .about-statcard .sc-item{padding:11px 0}
 .about-statcard .sc-item + .sc-item{border-top:1px solid var(--line)}
 .about-statcard .sc-item strong{display:block;font-family:"Cormorant Garamond";font-size:2.1rem;color:var(--gold);line-height:1}
@@ -778,6 +780,22 @@ footer{
 @media(max-width:540px){.about-statcard{position:static;margin:18px auto 0;max-width:240px}}
 /* Zoom foto de Alejandro (3ª), como Irene: menos silla */
 .voices .voice:nth-child(3) .voice-img img{transform:scale(1.32);transform-origin:50% 26%}
+
+/* ── Optimización móvil/tablet extra ── */
+@media(max-width:640px){
+  #quienes .about-grid p{text-align:left}          /* sin justificar en móvil (evita huecos) */
+  .rep-layout{grid-template-columns:1fr}
+  .rep-list{grid-template-columns:1fr}
+  .rep-cat, .rep-cat:nth-child(odd), .rep-cat:nth-child(even){padding:12px 0;border-right:0;padding-left:0;padding-right:0}
+  .about-statcard{position:static;top:auto;margin:16px auto 0;max-width:250px}
+}
+
+/* Red de seguridad pantallas muy pequeñas */
+img{max-width:100%}
+@media(max-width:380px){
+  .container{padding:0 14px}
+  .foot-inner,.foot-social,.foot-nav{flex-wrap:wrap;max-width:100%}
+}
 </style>
 </head>
 <body>
@@ -1408,6 +1426,7 @@ window.ALBUMS = {
   ceremonias: [
     "cade85dcac.jpg",
     "d877d9306a.jpg",
+    "088dd24b05.jpg",
     "30a10b9301.jpg",
     "8dc9198b67.jpg",
     "4781823baa.jpg",
