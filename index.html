@@ -433,7 +433,7 @@ body.loaded{overflow:auto}
 .lb-overlay.open{opacity:1;visibility:visible}
 .lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px;transform:scale(.92);transition:transform .3s ease;box-shadow:0 24px 80px rgba(0,0,0,.6)}
 .lb-overlay.open .lb-img{transform:scale(1)}
-.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s;z-index:10}
 .lb-close:hover{opacity:1}
 .lb-caption{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:"Mulish"}
 .gallery figure{cursor:zoom-in}
@@ -1408,7 +1408,6 @@ window.ALBUMS = {
   ceremonias: [
     "cade85dcac.jpg",
     "d877d9306a.jpg",
-    "088dd24b05.jpg",
     "30a10b9301.jpg",
     "8dc9198b67.jpg",
     "4781823baa.jpg",
