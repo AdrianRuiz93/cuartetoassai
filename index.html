@@ -1076,7 +1076,7 @@ img{max-width:100%}
         <h2 style="font-size:clamp(2rem,4vw,2.8rem)">Las piezas que más<br>nos pedís</h2>
         <p>Aquí podrás encontrar una selección orientativa de nuestro repertorio habitual. Si quieres el listado completo, no dudes en contactar con nosotros y te lo enviaremos a la mayor brevedad posible.</p>
         <button type="button" class="btn btn-gold" id="repBtn" style="margin-top:4px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H6l-2 2V5z"/><path d="M8 9h8M8 12h5"/></svg>
+          <span aria-hidden="true" style="font-size:1.15em;line-height:1;margin-right:.15em">✉️</span>
           Contacta con nosotros y obtén el repertorio completo
         </button>
       </div>
@@ -1216,7 +1216,7 @@ img{max-width:100%}
         <a href="#quienes">Quiénes somos</a>
         <a href="#novedades">Novedades</a>
         <a href="#experiencias">Experiencias</a>
-        <a href="#testimonios">Testimonios</a>
+        <a href="#testimonios">Reseñas</a>
         <a href="#repertorio">Repertorio</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -1396,7 +1396,7 @@ document.getElementById('fSend').addEventListener('click', () => {
   <button class="lb-back" id="lb-back" hidden>‹ Ver todas</button>
   <div class="lb-grid" id="lb-grid"></div>
   <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">‹</button>
-  <img class="lb-img" id="lb-img" src="" alt="">
+  <img class="lb-img" id="lb-img" src="" alt="" onerror="this.style.visibility='hidden'" onload="this.style.visibility='visible'">
   <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente">›</button>
   <div class="lb-counter" id="lb-counter"></div>
   <p class="lb-caption" id="lb-caption"></p>
@@ -1469,7 +1469,7 @@ window.ALBUMS = {
   function norm(s){return (s||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
   function buildGrid(){
     var h='<div class="lb-grid-title">'+(capText||'')+(list.length>1?' · '+list.length+' fotos':'')+'</div><div class="lb-grid-items">';
-    for(var i=0;i<list.length;i++){ h+='<img class="lb-thumb" data-i="'+i+'" src="'+list[i]+'" loading="lazy" alt="">'; }
+    for(var i=0;i<list.length;i++){ h+='<img class="lb-thumb" data-i="'+i+'" src="'+list[i]+'" loading="lazy" alt="" onerror="this.remove()">'; }
     grid.innerHTML=h+'</div>';
   }
   function openAlbum(arr, caption){
