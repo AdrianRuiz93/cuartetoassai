@@ -435,7 +435,7 @@ body.loaded{overflow:auto}
 .lb-overlay.open{opacity:1;visibility:visible}
 .lb-img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px;transform:scale(.92);transition:transform .3s ease;box-shadow:0 24px 80px rgba(0,0,0,.6)}
 .lb-overlay.open .lb-img{transform:scale(1)}
-.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
+.lb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s;z-index:6}
 .lb-close:hover{opacity:1}
 .lb-caption{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-family:"Mulish"}
 .gallery figure{cursor:zoom-in}
@@ -752,7 +752,7 @@ footer{
 @media(max-width:640px){.lb-nav{width:44px;height:44px;font-size:1.6rem}.lb-prev{left:8px}.lb-next{right:8px}}
 
 /* ── Cuadrícula de miniaturas del álbum ── */
-.lb-grid{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:72px 24px 44px;display:none}
+.lb-grid{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:72px 24px 44px;display:none;z-index:2}
 .lb-overlay.grid-mode .lb-grid{display:block}
 .lb-grid-title{color:#fff;text-align:center;font-family:"Cormorant Garamond";font-size:1.7rem;letter-spacing:.04em;margin:0 0 24px}
 .lb-grid-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;max-width:1080px;margin:0 auto}
