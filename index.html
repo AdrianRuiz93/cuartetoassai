@@ -1494,7 +1494,7 @@ window.ALBUMS = {
   function go(n){ if(list.length) showSingle(n); }
   window.openImg=function(src,c){ openSingle(src,c); };
   window.openLb=function(i){ var t=document.querySelectorAll('.gallery figure img')[i]; if(t) t.click(); };
-  grid.addEventListener('click', function(e){ var t=e.target.closest('.lb-thumb'); if(t) showSingle(parseInt(t.getAttribute('data-i'),10)); });
+  grid.addEventListener('click', function(e){ var t=e.target.closest('.lb-thumb'); if(t){ showSingle(parseInt(t.getAttribute('data-i'),10)); } else { close(); } });
   document.addEventListener('click', function(e){
     if(!e.target.closest) return;
     if(e.target.closest('#lightbox')) return;
