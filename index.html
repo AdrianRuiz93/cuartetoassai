@@ -340,10 +340,24 @@ details p{padding:2px 0 22px;color:#6b5a60;font-size:1rem;max-width:60ch;line-he
 .form-sub{font-size:.9rem;color:var(--muted);margin-bottom:24px}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:700}
-.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:7px;padding:.7em .95em;font-family:inherit;font-size:.94rem;background:var(--ivory);color:var(--ink);transition:.2s}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:var(--white)}
+.field input,.field select,.field textarea{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  border:1px solid var(--line);
+  border-radius:7px;
+  padding:.7em .95em;
+  font-family:inherit;
+  font-size:.94rem;
+  background:var(--ivory);
+  color:var(--ink);
+  transition:.2s;
+}.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:var(--white)}
 .field textarea{resize:vertical;min-height:72px}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+     .f-row > .field{
+  min-width:0;
+}
 .form-send{width:100%;margin-top:6px;justify-content:center;font-size:.9rem;padding:.85em 1.5em}
 .form-msg{margin-top:14px;font-size:.88rem;padding:13px 15px;border-radius:8px;display:none;line-height:1.6}
 .form-msg.ok{display:block;background:rgba(168,230,160,.14);border:1px solid rgba(100,180,90,.35);color:#3a6630}
@@ -1251,7 +1265,7 @@ img{max-width:100%}
         
         <details>
           <summary>¿A qué zonas os desplazáis? <span class="ic"></span></summary>
-          <p>Nos desplazamos por la Región de Murcia y alrededores: Alicante, Albacete, Almería…</p>
+          <p>Nos desplazamos por la Región de Murcia y alrededores.</p>
         </details>
         <details>
           <summary>¿Lleváis equipo de sonido? <span class="ic"></span></summary>
